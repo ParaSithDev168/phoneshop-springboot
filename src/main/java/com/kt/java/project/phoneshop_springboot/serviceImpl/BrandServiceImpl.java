@@ -17,6 +17,12 @@ public class BrandServiceImpl implements BrandService {
 	public Brand save(Brand brand) {
 		return brandRepository.save(brand);
 	}
+
+	@Override
+	public Brand getById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
