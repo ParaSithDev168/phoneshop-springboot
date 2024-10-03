@@ -1,5 +1,7 @@
 package com.kt.java.project.phoneshop_springboot.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,17 @@ public class BrandServiceImpl implements BrandService {
 		Brand brandById = getById(id);
 		brandById.setName(brandupdate.getName());
 		return brandRepository.save(brandById);
+	}
+
+	@Override
+	public List<Brand> getAllBrands() {
+		return brandRepository.findAll();
+	}
+
+	@Override
+	public List<Brand> getAllBrands(String name) {
+		
+		return brandRepository.findBrandBynameIgnoreCase(name);
 	} 
 
 }
