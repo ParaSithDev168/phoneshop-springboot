@@ -4,15 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kt.java.project.phoneshop_springboot.entity.Brand;
+import com.kt.java.project.phoneshop_springboot.exceptions.ResourceNotFoundException;
 import com.kt.java.project.phoneshop_springboot.repository.BrandRepository;
 import com.kt.java.project.phoneshop_springboot.service.BrandService;
 
+
 @Service
 public class BrandServiceImpl implements BrandService {
-	
+
 	@Autowired
-	BrandRepository brandRepository;	
-	
+	BrandRepository brandRepository;
+
 	@Override
 	public Brand save(Brand brand) {
 		return brandRepository.save(brand);
@@ -20,10 +22,17 @@ public class BrandServiceImpl implements BrandService {
 
 	@Override
 	public Brand getById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+//		
+		return brandRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Brand", id));
+	
 	}
-	
-	
+
+	@Override
+	public Brand updatebrand(Integer id, Brand brandupdate) {
+		Brand brandById = getById(id);
+		brandById.setName(brandupdate.getName());
+		return brandRepository.save(brandById);
+	} 
 
 }
