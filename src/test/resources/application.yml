@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+ datasource:
+  url: jdbc:h2:mem:testdb
+  username: sa
+  password: 
+ jpa:
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.H2Dialect
+  hibernate:
+      ddl-auto: create
+# oracle datasource
+#datasource:
+#  url: jdbc:oracle:thin:@//192.168.223.16:17168/AMRT24
+#  username: T24
+#  password: App$T24usrY2022
+#  driver-class-name: oracle.jdbc.OracleDriver
+# jpa:
+#  database-platform: org.hibernate.dialect.OracleDialect
+#  hibernate:
+#      ddl-auto: update

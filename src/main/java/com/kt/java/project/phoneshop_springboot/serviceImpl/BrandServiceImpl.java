@@ -46,6 +46,7 @@ public class BrandServiceImpl implements BrandService {
 	public List<Brand> getAllBrands(String name) {
 		
 		return brandRepository.findBrandBynameIgnoreCase(name);
+				
 	} 
 
 }
