@@ -54,6 +54,14 @@ public class BrandController {
 //		 	.collect(Collectors.toList());
 //		return ResponseEntity.ok(list);
 //	}
+	@GetMapping
+	public ResponseEntity<?> getAllBrands(){
+		 List<BrandDTO> list = brandService.getAllBrands()
+		 	.stream()
+		 	.map(brand -> BrandMapper.INSTANCE.toBrandDTO(brand))
+		 	.collect(Collectors.toList());
+		return ResponseEntity.ok(list);
+	}
 	
 	@GetMapping("filter")
 	public ResponseEntity<?> getAllBrands(@RequestParam String name){
