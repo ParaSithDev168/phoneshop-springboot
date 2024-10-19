@@ -7,8 +7,8 @@ import lombok.Data;
 @Builder
 public class PaginationDTO {
 	
-	private int pageNumber;
 	private int pageSize;
+	private int pageNumber;
 	private int totalPages;
 	private long totalElements;
 	private long numberOfElements;
